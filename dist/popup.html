@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SummarizeIt (AI)</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <h1>SummarizeIt (AI)</h1>
+      <button id="options-btn" class="options-btn" title="Settings">⚙️</button>
+    </header>
+
+    <div class="popup-content">
+      <div class="status-section">
+        <div id="status" class="status">Ready to summarize</div>
+      </div>
+
+      <div class="action-buttons">
+        <button id="summarize-page" class="action-btn primary">
+          📄 Summarize Page
+        </button>
+        <button id="summarize-selection" class="action-btn secondary">
+          ✂️ Summarize Selection
+        </button>
+      </div>
+
+      <div id="output-section" class="output-section hidden">
+        <div class="output-header">
+          <h3>Summary</h3>
+          <button id="copy-btn" class="copy-btn">📋 Copy</button>
+        </div>
+        <div id="output" class="output-content"></div>
+      </div>
+
+      <div id="error-section" class="error-section hidden">
+        <div class="error-header">
+          <h3>Error</h3>
+        </div>
+        <div id="error-message" class="error-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

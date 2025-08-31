@@ -1,0 +1,19 @@
+{
+  "name": "summarizeit-ai",
+  "version": "1.0.0",
+  "description": "A Chrome extension that summarizes web pages and text selections using AI",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch && node build.js",
+    "build": "vite build && node build.js",
+    "zip": "npm run build && cd dist && zip -r ../summarizeit-ai.zip ."
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.260",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.5.0"
+  }
+}
