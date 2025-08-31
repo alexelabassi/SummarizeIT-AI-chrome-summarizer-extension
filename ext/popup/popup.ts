@@ -152,9 +152,27 @@ class Popup {
   }
 
   private showOutput(summary: string) {
-    this.outputElement.textContent = summary;
+    this.outputElement.innerHTML = this.renderMarkdown(summary);
     this.outputSection.classList.remove('hidden');
     this.errorSection.classList.add('hidden');
+  }
+
+  private renderMarkdown(text: string): string {
+    return text
+      // Bold text: **text** or __text__
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/__(.*?)__/g, '<strong>$1</strong>')
+      // Italic text: *text* or _text_
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/_(.*?)_/g, '<em>$1</em>')
+      // Code: `text`
+      .replace(/`(.*?)`/g, '<code>$1</code>')
+      // Line breaks
+      .replace(/\n/g, '<br>')
+      // Bullet points: - text or * text
+      .replace(/^[-*]\s+(.*)$/gm, '<li>$1</li>')
+      // Wrap lists in ul tags (simple approach)
+      .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
   }
 
   private showError(message: string) {
