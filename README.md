@@ -19,7 +19,6 @@ A Chrome extension that summarizes web pages and text selections using AI provid
 1. **Clone the repository**:
    ```bash
    git clone <repository-url>
-   cd chrome-summarizer-2
    ```
 
 2. **Install dependencies**:
